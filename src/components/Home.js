@@ -2,15 +2,15 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Alert from '@material-ui/lab/Alert';
+// import Alert from '@material-ui/lab/Alert'; // (fait appel à "api" qui est introuvable)
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import YouTube from 'react-youtube';
 import AlertTitle from '@material-ui/lab/AlertTitle';
 import { useHistory, Link } from 'react-router-dom';
-import { TournesolAPI } from '../api';
-import EmailAddVerifyAlert from './EmailAddVerifyAlert';
+// import { TournesolAPI } from '../api'; // (fait appel à "api" qui est introuvable)
+// import EmailAddVerifyAlert from './EmailAddVerifyAlert'; // (fait appel à "api" qui est introuvable)
 import { minNumRateLater } from '../constants';
 
 const youtubeOpts = {
@@ -85,7 +85,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default () => {
+const Home = () => {
   const classes = useStyles();
   const history = useHistory();
   const [data, setData] = React.useState({});
@@ -94,7 +94,7 @@ export default () => {
   const [numRatings, setNumRatings] = React.useState(null);
 
   const showArrowTutorial = (window.is_authenticated === 0) || (numRatings === 0);
-
+  /* (fait appel à "api" qui est introuvable)
   // obtaining number of ratings
   if (numRatings === null) {
     setNumRatings(undefined);
@@ -128,7 +128,7 @@ export default () => {
       setLoading(false);
     });
   }
-
+  */
   // get one statistic from data or "..." if loading
   const getStatistic = (key) => (loading ? '...' : data[key].toLocaleString());
 
@@ -271,7 +271,7 @@ export default () => {
       <div className={classes.spacing} />
 
       <div className={classes.descriptionContainer}>
-
+            {/* (fait appel à "api" qui est introuvable)
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Alert
             severity="warning"
@@ -303,7 +303,7 @@ export default () => {
 
           </Alert>
         </div>
-
+            */}
         <div className={classes.spacing} />
 
         {showArrowTutorial === true && (
@@ -428,3 +428,6 @@ export default () => {
     </div>
   );
 };
+
+
+export default Home;

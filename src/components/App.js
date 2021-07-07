@@ -39,6 +39,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
+import Home from './Home'
+
 // import Router from './Router';
 
 const drawerWidth = 240;
@@ -462,6 +464,7 @@ const App = () => {
 
       <main className={classes.content}>
         Hello World
+        <Home />
       </main>
     </div>
   );
