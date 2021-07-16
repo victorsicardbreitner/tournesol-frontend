@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import YouTube from 'react-youtube';
 import AlertTitle from '@material-ui/lab/AlertTitle';
 import { useHistory, Link } from 'react-router-dom';
-// import { TournesolAPI } from '../api'; // (fait appel à "api" qui est introuvable)
-// import EmailAddVerifyAlert from './EmailAddVerifyAlert'; // (fait appel à "api" qui est introuvable)
+// import { TournesolAPI } from '../api'; // (needs "api" which is not found)
+// import EmailAddVerifyAlert from './EmailAddVerifyAlert'; // (needs "api" which is not found)
 import { minNumRateLater } from '../constants';
 
 const youtubeOpts = {
@@ -94,7 +94,7 @@ const Home = () => {
   const [numRatings, setNumRatings] = React.useState(null);
 
   const showArrowTutorial = (window.is_authenticated === 0) || (numRatings === 0);
-  /* (fait appel à "api" qui est introuvable)
+  /* (needs "api" which is not found)
   // obtaining number of ratings
   if (numRatings === null) {
     setNumRatings(undefined);
@@ -271,7 +271,7 @@ const Home = () => {
       <div className={classes.spacing} />
 
       <div className={classes.descriptionContainer}>
-            {/* (fait appel à "api" qui est introuvable)
+            {/* (needs "api" which is not found)
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Alert
             severity="warning"
