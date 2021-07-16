@@ -38,6 +38,7 @@ import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import logo from './logo.svg';
 
 import Home from './Home'
 
@@ -209,6 +210,7 @@ const App = () => {
           </IconButton>
           <Typography variant="h6" noWrap>
             Tournesol
+            <img src={logo} className="App-logo" alt="logo" />
           </Typography>
           <WbSunny />
 
