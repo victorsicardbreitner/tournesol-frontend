@@ -31,9 +31,21 @@ module.exports = {
           },
         },
       },
+      
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test:  /\.svg$/, //trying to find a solution to display svg files
+        use: [
+          {
+            loader: 'file-loader', //trying with "file loader"
+            options: {
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
