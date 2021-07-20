@@ -38,14 +38,7 @@ module.exports = {
       },
       {
         test:  /\.svg$/, //trying to find a solution to display svg files
-        use: [
-          {
-            loader: 'file-loader', //trying with "file loader"
-            options: {
-              name: 'images/[hash]-[name].[ext]',
-            },
-          },
-        ],
+        use: ['@svgr/webpack'], //trying with another loader
       },
     ],
   },
