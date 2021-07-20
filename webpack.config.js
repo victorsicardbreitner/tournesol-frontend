@@ -19,6 +19,8 @@ module.exports = {
   },
   module: {
     rules: [
+
+      
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -32,14 +34,18 @@ module.exports = {
         },
       },
       
+
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+
+
       {
         test:  /\.svg$/, //trying to find a solution to display svg files
         use: ['@svgr/webpack'], //trying with another loader
       },
+      
     ],
   },
 };
