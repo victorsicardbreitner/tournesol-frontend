@@ -372,6 +372,7 @@ const Home = () => {
                   />
                   {' '}of<br />
                   your "rate-later" list
+                  
                 </div>
               </div>
             </div>

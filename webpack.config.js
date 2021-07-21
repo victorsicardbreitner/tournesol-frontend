@@ -42,10 +42,23 @@ module.exports = {
 
 
       {
-        test:  /\.svg$/, //trying to find a solution to display svg files
-        use: ['@svgr/webpack'], //trying with another loader
+        test: /\.svg$/,
+        use: [
+          "babel-loader",
+          {
+            loader: "react-svg-loader",
+            options: {
+              svgo: {
+                plugins: [
+                  { removeTitle: false }
+                ],
+                floatPrecision: 2
+              }
+            }
+          }
+        ]
       },
-      
+
     ],
   },
 };
