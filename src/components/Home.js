@@ -13,6 +13,8 @@ import { useHistory, Link } from 'react-router-dom';
 // import EmailAddVerifyAlert from './EmailAddVerifyAlert'; // (needs "api" which is not found)
 import { minNumRateLater } from '../constants';
 
+import UpgradeBro from './Svg/UpgradeBro.js'
+
 const youtubeOpts = {
   height: '275px',
   width: '490px',
@@ -83,6 +85,26 @@ const useStyles = makeStyles(() => ({
     color: 'black',
     transform: 'translateX(-50%)',
   },
+  //add :
+  rectangle67 : {
+    position: 'absolute',
+    width: '1440px',
+    height: '534px',
+    left: '0px',
+    top: '0px',
+
+    background: '#1282B2',
+  },
+  upgradeBro : {
+    position: 'absolute',
+    width: '374px',
+    height: '392.01px',
+    left: '855px',
+    top: '118px',
+  }
+
+
+
 }));
 
 const Home = () => {
@@ -151,11 +173,13 @@ const Home = () => {
               <img
                 style={{ width: '1em', marginTop: '0.3em' }}
                 src="/static/tournesol_logo.png"
+
                 alt="tournesol"
               />
             </span>
           </Typography>
           <Typography paragraph>
+          <div className={classes.rectangle67}> <UpgradeBro cl={classes.upgradeBro}/> </div>
             Tournesol aims to identify top videos of public utility
             by eliciting contributors' judgements on content quality.
             <br />
