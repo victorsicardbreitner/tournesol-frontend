@@ -98,7 +98,7 @@ const useStyles = makeStyles(() => ({
     position: 'absolute',
     width: '374px',
     height: '392.01px',
-    left: '855px',
+    right: '211px',
     top: '118px',
   }
 

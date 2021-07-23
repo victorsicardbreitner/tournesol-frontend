@@ -19,7 +19,7 @@ import Button from '@material-ui/core/Button';
 import Home from './Home'
 
 
-const drawerWidth = 240;
+const drawerWidth = 0;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -139,6 +139,68 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     "border-radius": "0px 4px 4px 0px",
   },
+
+  LogInButton : {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: "11px 16px",
+
+    position: "static",
+
+    
+    /* Primary/Sunflower/A-30 */
+
+    border: "2px solid #806300",
+    boxSizing: "border-box",
+    borderRadius: "4px",
+    background : "#FFC800",
+
+    /* Inside Auto Layout */
+
+    flex: "none",
+    order: "1",
+    flexGrow: "0",
+    marginRight: "16px",
+    
+
+    //fontFamily: "Poppins",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "16px",
+    lineHeight: "18px",
+    color: "#806300",
+  },
+
+  JoinUsButton : {
+    /* Auto Layout */
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: "11px 16px",
+
+    position: "static",
+
+    border: "2px solid #3198C4",
+    boxSizing: "border-box",
+    background: "#3198C4",
+    borderRadius: "4px",
+
+    /* Inside Auto Layout */
+
+    flex: "none",
+    order: "1",
+    flexGrow: "0",
+    marginRight: "0px",
+
+    //fontFamily: "Poppins",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "16px",
+    lineHeight: "18px",
+    color : "#FFFFFF",
+  },
   
 
   
@@ -227,7 +289,7 @@ const App = () => {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-          <Button
+                {/*<Button
                   variant="contained"
                   color="primary"
                   size="small"
@@ -244,7 +306,9 @@ const App = () => {
                   id="signup_button"
                 >
                   Join us
-                </Button>
+                </Button>*/}
+                <button type="submit" className={classes.LogInButton}>Log in</button>
+                <button type="submit" className={classes.JoinUsButton}>Join us</button>
           </div>
 
         </Toolbar>
