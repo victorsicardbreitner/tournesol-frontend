@@ -4,45 +4,20 @@ import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import Tooltip from '@material-ui/core/Tooltip';
-import Alert from '@material-ui/lab/Alert';
-import WbSunny from '@material-ui/icons/WbSunny';
-import FunctionsIcon from '@material-ui/icons/Functions';
-import PersonIcon from '@material-ui/icons/Person';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import StorageIcon from '@material-ui/icons/Storage';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import SearchIcon from '@material-ui/icons/Search';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import BugReportIcon from '@material-ui/icons/BugReport';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
-import Logo from './Svg/Logo.js'
+import Logo from './Svg/Logo.js';
+import Vector from './Svg/Vector.js';
+import Button from '@material-ui/core/Button';
+
 
 import Home from './Home'
 
-// import Router from './Router';
 
 const drawerWidth = 240;
 
@@ -104,10 +79,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+    justifyContent: 'center',
+    height : "80px",
   },
   sectionDesktop: {
     display: 'none',
@@ -116,25 +89,59 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
+    position: 'absolute',
     flexGrow: 1,
-    marginTop: '64px',
-    height: 'calc(100% - 64px)',
-    padding: '16px',
-    paddingBottom: '0px',
-    overflow: 'auto',
+    marginTop: '80px',
+    height: 'calc(100% - 80px)',
+    width : '100%',
+    
   },
   nested: {
     paddingLeft: theme.spacing(4),
   },
 
-  searchbar : {
-    position: 'absolute',
-    height: '40px',
-    left: '30.56%',
-    right: '30.56%',
-    top: 'calc(50% - 40px/2 - 40px)',
-  }
+ 
 
+  //try with searchbar
+
+  search : {
+    position: 'absolute',
+  },
+  
+  searchTerm : {
+    width: "484px",
+    border: "1px solid #F1EFE7",
+    "border-right": "none",
+    padding: "5px",
+    height: "36px",
+    "border-radius": "4px",
+    "box-sizing": "border-box",
+    outline: "none",
+    color: "#9dbfaf",
+    "font-family": "Poppins",
+    "font-style": "normal",
+    "font-weight": "normal",
+    "font-size": "18px",
+    "line-height": "28px",
+  },
+  
+  
+  searchButton : {
+    width : "76px",
+    right: "0px",
+    top: "0px",
+    bottom: "0px",
+    height: "36px",
+    border: "1px solid #F1EFE7",
+    background: "#F1EFE7",
+    color: "#fff",
+    cursor: "pointer",
+    position: "absolute",
+    "border-radius": "0px 4px 4px 0px",
+  },
+  
+
+  
   
 }));
 
@@ -209,269 +216,40 @@ const App = () => {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
+        <Toolbar className={classes.toolbar}>
           <Logo />
-          <input type="text" className="searchbar" placeholder="Search" />
-          {window.location.href.includes('staging.tournesol.app') && (
-          <Alert
-            severity="warning"
-            icon
-            variant="outlined"
-            style={{ width: '70%', marginTop: '5px', marginBottom: '5px' }}
-          >
-            This is the staging platform of Tournesol.
-            To access the actual Tournesol page, please go to{' '}
-            <a href="https://tournesol.app">tournesol.app</a>.
-            Please also{' '}
-            <a href="mailto:tournesol.application@gmail.com">let us know</a>
-            {' '}how you ended up on the staging platform, if it was by mistake.
-
-          </Alert>
-          )}
-
-          {window.location.href.includes('127.0.0.1') && (
-          <Alert
-            severity="warning"
-            icon
-            variant="outlined"
-            style={{ width: '70%', marginTop: '5px', marginBottom: '5px' }}
-          >
-            Development version
-
-          </Alert>
-          )}
+          <div className={classes.search}>
+            <input type="text" className={classes.searchTerm} id="input_text"></input>
+            <button type="submit" className={classes.searchButton}>
+              <Vector />
+            </button>
+          </div>
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton
-              color="inherit"
-              href={socialMedia.twitter.href}
-              aria-label={socialMedia.twitter.ariaLabel}
-            >
-              <TwitterIcon />
-            </IconButton>
-
-            <IconButton
-              color="inherit"
-              href={socialMedia.youtube.href}
-              aria-label={socialMedia.youtube.ariaLabel}
-            >
-              <YouTubeIcon />
-            </IconButton>
-
-            <IconButton
-              color="inherit"
-              href={socialMedia.github.href}
-              aria-label={socialMedia.github.ariaLabel}
-            >
-              <GitHubIcon />
-            </IconButton>
+          <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  onClick={() => history.push('/login')}
+                  id="login_button"
+                >
+                  Log in
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="small"
+                  onClick={() => history.push('/signup')}
+                  id="signup_button"
+                >
+                  Join us
+                </Button>
           </div>
 
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <ListItem button onClick={() => history.push('/home')}>
-            <ListItemIcon>
-              <WbSunny />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
 
-          <Divider />
-
-          <ListItem
-            id="user_interface"
-            button
-            onClick={() => history.push('/recommendations')}
-          >
-            <ListItemIcon>
-              <SearchIcon color="primary" />
-            </ListItemIcon>
-            <ListItemText primary="Search" />
-          </ListItem>
-
-          {window.is_authenticated ? (
-            <ListItem button onClick={() => history.push('/rate_later')} id="rate_later_menu">
-              <ListItemIcon>
-                <QueuePlayNextIcon color="secondary" />
-              </ListItemIcon>
-              <ListItemText primary="Add videos" />
-            </ListItem>
-          ) : ''}
-
-          {window.is_authenticated ? (
-            <ListItem
-              id="expert_interface"
-              button
-              onClick={() => history.push('/rate')}
-            >
-              <ListItemIcon>
-                <FunctionsIcon color="secondary" />
-              </ListItemIcon>
-              <ListItemText primary="Rate videos" />
-            </ListItem>
-          ) : ''}
-
-          {window.is_authenticated ? (
-            <ListItem button onClick={() => history.push(`/user/${window.username}`)} id="personal_info_menu">
-              <ListItemIcon>
-                <PersonIcon color="primary" />
-              </ListItemIcon>
-              <ListItemText primary="My profile" />
-            </ListItem>
-          ) : ''}
-
-          <ListItem
-            button
-            id="more_button"
-            component="a"
-            onClick={() => handleMoreClick()}
-          >
-            <ListItemIcon>
-              <MoreHorizIcon />
-            </ListItemIcon>
-            <ListItemText primary="More" />
-            {moreOpen ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-
-          <Collapse in={moreOpen} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding id="id_list_more">
-
-              <ListItem
-                className={nestedClass}
-                id="tournesol_wiki"
-                button
-                component="a"
-                href="https://wiki.tournesol.app"
-              >
-                <ListItemIcon>
-                  <MenuBookIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Tournesol Wiki" />
-              </ListItem>
-
-              {window.is_authenticated ? (
-                <ListItem
-                  button
-                  onClick={() => history.push('/details')}
-                  id="video_details_menu"
-                  className={nestedClass}
-                >
-                  <ListItemIcon>
-                    <YouTubeIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Videos" />
-                </ListItem>
-              ) : ''}
-
-              {window.is_authenticated ? (
-                <ListItem
-                  button
-                  onClick={() => history.push('/representative')}
-                  id="representative_menu"
-                  className={nestedClass}
-                >
-                  <ListItemIcon>
-                    <ListAltIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Representative" />
-                </ListItem>
-              ) : ''}
-
-              {window.is_authenticated ? (
-                <ListItem
-                  button
-                  onClick={() => history.push('/inconsistencies')}
-                  id="inconsistencies_menu"
-                  className={nestedClass}
-                >
-                  <ListItemIcon>
-                    <BugReportIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Inconsistencies" />
-                </ListItem>
-              ) : ''}
-            </List>
-          </Collapse>
-
-          <Divider />
-
-          {window.is_authenticated === 1 && (
-            <ListItem
-              button
-              id="logout_button"
-              component="a"
-              onClick={() => history.push('/logout')}
-            >
-              <ListItemIcon>
-                <ExitToAppIcon />
-              </ListItemIcon>
-              <Tooltip title={`You are ${window.username}`} aria-label="report">
-                <ListItemText primary="Log out" />
-              </Tooltip>
-            </ListItem>
-          )}
-
-          {window.is_superuser ? (
-            <div>
-              <Divider />
-              <ListItem button component="a" href="/admin/">
-                <ListItemIcon>
-                  <SupervisorAccountIcon />
-                </ListItemIcon>
-                <ListItemText primary="Administration" />
-              </ListItem>
-              <ListItem button component="a" href="/api/v2/">
-                <ListItemIcon>
-                  <StorageIcon />
-                </ListItemIcon>
-                <ListItemText primary="API explorer" />
-              </ListItem>
-              <ListItem button component="a" href="/files/">
-                <ListItemIcon>
-                  <AssessmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Training artifacts" />
-              </ListItem>
-            </div>) : ''}
-
-        </List>
-      </Drawer>
 
       <main className={classes.content}>
         <Home />
