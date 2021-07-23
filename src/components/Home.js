@@ -12,6 +12,7 @@ import { useHistory, Link } from 'react-router-dom';
 // import { TournesolAPI } from '../api'; // (needs "api" which is not found)
 // import EmailAddVerifyAlert from './EmailAddVerifyAlert'; // (needs "api" which is not found)
 import { minNumRateLater } from '../constants';
+import './Css/Poppins.css';
 
 import UpgradeBro from './Svg/UpgradeBro.js'
 
@@ -87,6 +88,8 @@ const useStyles = makeStyles(() => ({
   },
   //add :
   rectangle67 : {
+    display : 'flex',
+    justifyContent : 'flex-end',
     position: 'absolute',
     width: '100%',
     height: '534px',
@@ -94,15 +97,51 @@ const useStyles = makeStyles(() => ({
     top: '0px',
     background: '#1282B2',
   },
+  
   upgradeBro : {
     position: 'absolute',
     width: '374px',
     height: '392.01px',
     right: '211px',
     top: '118px',
-  }
+  },
 
+  buttonMedium : {
+    /* Auto Layout */
 
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: "11px 16px",
+
+    position: "static",
+
+    border: "none",
+    boxSizing: "border-box",
+    background: "none",
+
+    /* Inside Auto Layout */
+
+    order: "1",
+    flexGrow: "0",
+    marginRight: "0px",
+
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "16px",
+    lineHeight: "18px",
+    color : "#FFFFFF",
+  },
+
+  menu : {
+    display : 'flex',
+    flexFlow: 'row wrap',
+    background : 'none',
+    maxHeight : '80px',
+  },
+
+  
 
 }));
 
@@ -118,25 +157,32 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.rectangle67}> <UpgradeBro cl={classes.upgradeBro}/> </div>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Grid item xs={6}>
-          <Typography variant="h3">
-            Tournesol
-          </Typography>
-        </Grid>
-        <Typography variant="h4">
-          Our journey so far encompasses...
-        </Typography>
-      </Grid>
+      <div className={classes.rectangle67}> <UpgradeBro cl={classes.upgradeBro}/> 
+        <div className={classes.menu}> 
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>ABOUT</button>
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>FAQ</button>
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>NEWS</button>
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>RESSOURSES</button>
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>DOWNLOADS</button>
+          <button type="submit" className={classes.buttonMedium} onClick={() => history.push('/signup')}>DONATE</button>
+        </div>
+      </div>
     </div>
   );
 };
 
 
 export default Home;
+
+
+{/*<Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        
+          <Typography variant="h3">
+            Tournesol
+          </Typography>
+      </Grid>*/}

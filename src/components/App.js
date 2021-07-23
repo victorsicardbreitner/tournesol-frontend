@@ -14,7 +14,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import Logo from './Svg/Logo.js';
 import Vector from './Svg/Vector.js';
 import Button from '@material-ui/core/Button';
-
+import './Css/Poppins.css';
 
 import Home from './Home'
 
@@ -111,18 +111,18 @@ const useStyles = makeStyles((theme) => ({
   searchTerm : {
     width: "484px",
     border: "1px solid #F1EFE7",
-    "border-right": "none",
+    borderRight: "none",
     padding: "5px",
     height: "36px",
-    "border-radius": "4px",
-    "box-sizing": "border-box",
+    borderRadius: "4px",
+    boxRizing: "border-box",
     outline: "none",
     color: "#9dbfaf",
-    "font-family": "Poppins",
-    "font-style": "normal",
-    "font-weight": "normal",
-    "font-size": "18px",
-    "line-height": "28px",
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "28px",
   },
   
   
@@ -164,7 +164,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "16px",
     
 
-    //fontFamily: "Poppins",
+    fontFamily: "Poppins",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "16px",
@@ -194,7 +194,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "0",
     marginRight: "0px",
 
-    //fontFamily: "Poppins",
+    fontFamily: "Poppins",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "16px",
@@ -307,8 +307,8 @@ const App = () => {
                 >
                   Join us
                 </Button>*/}
-                <button type="submit" className={classes.LogInButton}>Log in</button>
-                <button type="submit" className={classes.JoinUsButton}>Join us</button>
+                <button type="submit" className={classes.LogInButton} onClick={() => history.push('/login')}>Log in</button>
+                <button type="submit" className={classes.JoinUsButton} onClick={() => history.push('/signup')}>Join us</button>
           </div>
 
         </Toolbar>
